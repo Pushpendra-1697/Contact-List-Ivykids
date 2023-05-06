@@ -1,6 +1,6 @@
 import { Box, Input } from '@chakra-ui/react';
 import React, { useState } from 'react';
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { addContact } from '../redux/Contact/contact.action';
 
 const initialState = {
@@ -28,11 +28,11 @@ const DetailCard = () => {
 
     const { name, phone, address } = formData;
     return (
-        <Box display={'flex'} justifyContent={'center'} alignItems={'center'}>
+        <Box mb='5%' display={'flex'} justifyContent={'center'} alignItems={'center'}>
             <form onSubmit={handleSubmit} style={{ display: "table", width: "300px" }}>
-                <Input type='text' name='name' value={name} placeholder='Enter Name' onChange={handleChange} />
+                <Input type='text' name='name' value={name} placeholder='Enter Name' onChange={handleChange} m={['2% 0', '2% 0', '1% 0']} />
                 <Input type='tel' maxLength={"10"} name='phone' value={phone} placeholder='Enter Phone No.' onChange={handleChange} />
-                <Input type='text' name='address' value={address} placeholder='Enter Address' onChange={handleChange} />
+                <Input type='text' name='address' value={address} placeholder='Enter Address' onChange={handleChange} m={['2% 0', '2% 0', '1% 0']} />
                 <Input bg='blue' color={'white'} type='submit' value={"Add Contact"} />
             </form>
         </Box>

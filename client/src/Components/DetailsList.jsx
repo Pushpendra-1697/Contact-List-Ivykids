@@ -1,6 +1,11 @@
-import { Table, TableContainer, Tbody, Td, Th, Thead, Tr, Text, Button, useDisclosure, ModalFooter, Stack, FormLabel, FormControl, Input, Box, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Modal, Flex, useColorModeValue } from '@chakra-ui/react';
+import { Table, TableContainer, Tbody, Td, Th, Thead, Tr, Button, useDisclosure, ModalFooter, Stack, FormLabel, FormControl, Input, Box, ModalBody, ModalCloseButton, ModalContent, ModalHeader, ModalOverlay, Modal, Flex, useColorModeValue } from '@chakra-ui/react';
 import React, { useState } from 'react';
 import { AiFillDelete, AiOutlineEdit } from 'react-icons/ai';
+import { useDispatch } from 'react-redux';
+import { deleteContact, updateContact } from '../redux/Contact/contact.action';
+import { AiOutlineUserAdd, AiOutlinePhone } from 'react-icons/ai';
+import {FcAddressBook} from 'react-icons/fc';
+import { Icon } from '@chakra-ui/icons';
 
 const DetailsList = ({ contacts }) => {
     const [id, setID] = useState("");
@@ -10,24 +15,10 @@ const DetailsList = ({ contacts }) => {
         phone: "",
         address: ""
     });
+    const dispatch = useDispatch();
 
-    console.log(contacts)
-
-
-    const handleRemove = async (_id) => {
-        // let res = await fetch(`${BackendURL}/user/delete/${_id}`, {
-        //     method: "DELETE",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //         "email": localStorage.getItem("email")
-        //     },
-        // }).then((res) => res.json()).then((res) => {
-        //     console.log(res);
-        //     getUser(page);
-        //     alert(`${res.msg}`)
-        // }).catch((err) => {
-        //     console.log(err)
-        // });
+    const handleRemove = (_id) => {
+        dispatch(deleteContact(_id));
     };
 
     const handleUpdate = (id) => {
@@ -41,7 +32,7 @@ const DetailsList = ({ contacts }) => {
     };
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(state);
+        dispatch(updateContact(id, state));
         setState({ name: "", phone: "", address: "" });
     };
 
@@ -52,9 +43,9 @@ const DetailsList = ({ contacts }) => {
                 <Table size='sm' variant={"striped"}>
                     <Thead>
                         <Tr>
-                            <Th>Name</Th>
-                            <Th>Address</Th>
-                            <Th>Phone No.</Th>
+                            <Th>Name <Icon fontSize={'23px'} as={AiOutlineUserAdd} /></Th>
+                            <Th>Address <Icon fontSize={'23px'} as={FcAddressBook} /></Th>
+                            <Th>Phone No. <Icon fontSize={'23px'} as={AiOutlinePhone} /></Th>
                             <Th>CreatedAt</Th>
                             <Th>UpdatedAt</Th>
                             <Th>Edit</Th>
@@ -70,7 +61,7 @@ const DetailsList = ({ contacts }) => {
                                 <Td>{ele.createdAt}</Td>
                                 <Td>{ele.updatedAt}</Td>
                                 <Td><Button variant={"outline"} color={"green"} onClick={() => handleUpdate(ele._id)}><AiOutlineEdit /></Button></Td>
-                                <Td><Button variant={"outline"} color={"red"} onClick={() => handleRemove(ele._id)}> <AiFillDelete /> </Button></Td>
+                                <Td><Button variant={"outline"} color={"red"} onClick={() => handleRemove(ele._id)}><AiFillDelete /></Button></Td>
                             </Tr>
                         )}
                     </Tbody>
@@ -126,6 +117,7 @@ const DetailsList = ({ contacts }) => {
                                                         placeholder="Phone"
                                                         type="tel"
                                                         onChange={handleChange}
+                                                        maxLength={"10"}
                                                     />
                                                 </FormControl>
                                                 <Stack spacing={10} pt={2}>
