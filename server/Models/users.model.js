@@ -9,7 +9,7 @@ const userSchema = new Schema(
     { versionKey: false, timestamps: true }
 );
 
-//Model of event
+//Model of user
 const UserModel = model("user", userSchema);
 
 module.exports = UserModel;
