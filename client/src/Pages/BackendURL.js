@@ -1,0 +1,1 @@
+export const backend_url = "https://contact-wh3n.onrender.com";
