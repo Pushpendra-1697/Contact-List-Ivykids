@@ -53,4 +53,14 @@ Clone the Repository from Github. Then do the following steps:
 
 # A) For Computer Screen:
 
+![Screenshot (250)](https://user-images.githubusercontent.com/104748364/236613110-8cefba83-2dcb-4d87-bd66-7d75e65b7a3e.png)
+
+![Screenshot (251)](https://user-images.githubusercontent.com/104748364/236613113-3b930b88-4248-4182-9a2b-0df496ddd8cc.png)
+
+![Screenshot (252)](https://user-images.githubusercontent.com/104748364/236613121-1f371d4e-2bd4-4325-a2b7-5e16292fdf21.png)
+
 # B) For Mobile/Tablet Screen :
+![Screenshot (253)](https://user-images.githubusercontent.com/104748364/236613127-9d05328e-77a4-435b-94ea-0188c186bea7.png)
+
+![Screenshot (254)](https://user-images.githubusercontent.com/104748364/236613132-faeacbbc-75c7-457b-b935-0c81e928b5d5.png)
+
